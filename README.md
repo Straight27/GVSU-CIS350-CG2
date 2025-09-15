@@ -1,12 +1,17 @@
 # Team Name
 
-Project description (~1 Paragraph)
+Team Name: Computer Guys 2
+Project Name: TBD
+Project Catch-Phrase: TBD
+
+A tracker (health/academic) that directly relates to the health, evolution, and appearance of an animated sprite. This Tamagotchi-inspired idea promotes consistency in vital areas of your life by leveraging the responsabliltiy of your sprite's well-being and growth. As you grow for the better, so does your sprite! 
 
 # Team Members and Roles
 
-* Member 1 (Role 1, Role 2)
-* Member 2 (Role 3, Role 4)
-* Member 3 (Role 5, Role 6)
+* Ryan Strait 
+* Ian Duthler 
+* Jayden McWhirter 
+* Enrique Jayes
 
 # Prerequisites
 
