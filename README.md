@@ -11,7 +11,7 @@ A tracker (health/academic) that directly relates to the health, evolution, and 
 * Ryan Strait 
 * Ian Duthler 
 * Jayden McWhirter (added for HW2)
-* Enrique Jayes
+* Enrique Reyes
 
 # Prerequisites
 
