@@ -1,4 +1,4 @@
-# Team Name
+# Computer Guys II
 
 Team Name: Computer Guys 2
 Project Name: TBD
@@ -9,7 +9,7 @@ A tracker (health/academic) that directly relates to the health, evolution, and 
 # Team Members and Roles
 
 * Ryan Strait 
-* Ian Duthler 
+* Ian Duthler (added for HW2) 
 * Jayden McWhirter (added for HW2)
 * Enrique Reyes
 
