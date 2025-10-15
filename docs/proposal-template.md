@@ -22,7 +22,7 @@ We chose the Agile Scrum process model because it would allow us to complete por
 # Estimated Timeline
 
 Our estimated timeline is in the form of the Gantt chart below:
-![Gantt Chart](docs/'CIS350 Group Presentation.pdf')
+![Gantt Chart](gantt-chart.png)
 
 # Anticipated Problems
 
