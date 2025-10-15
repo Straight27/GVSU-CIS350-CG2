@@ -21,10 +21,8 @@ We chose the Agile Scrum process model because it would allow us to complete por
 
 # Estimated Timeline
 
-Currently, we only have plans for next week. They are as follows:
-* Determine Roles
-* Create a crude mock-up using Figma or related software
-* Establish Project Management through Trello or related software
+Our estimated timeline is in the form of the Gantt chart below:
+![Gantt Chart](docs/'CIS350 Group Presentation.pdf')
 
 # Anticipated Problems
 
