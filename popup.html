@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Study Sprite</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body style="background-color: lightblue;">
+		<div style="border: 5px solid #333333; height: 150px; width: 150px; display: flex; float: left; margin-right: 10px;">
+			<img src="temp_gif.gif" alt="Hello as an image" style="padding: 11px;">
+		</div>
+		<div style="border: 5px solid #333; height:140px; width: 310px; padding: 5px; display: flex; flex-direction: column;">
+  			<input type="text" id="classInput" placeholder="Class name..." />
+  			<input type="text" id="assignmentInput" placeholder="Assignment name..." />
+  			<input type="text" id="dueDateInput" placeholder="Due date..." />
+ 			<button id="saveBtn">Save</button>
+  			<p id="status"></p>
+		</div>
+
+		<div id="displayDiv" style="border: 5px solid #333333; padding: 5px; margin-top: 10px; max-height: 150px; overflow-y: auto;">
+    		No assignments saved yet.
+  		</div>
+		<p><a href="shop.html" class="button">Shop</a></p>
+		<script src="popup.js"></script>
+	</body>
+</html>
