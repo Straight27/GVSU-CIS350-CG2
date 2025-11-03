@@ -63,16 +63,20 @@ function updateDisplay(assignments) {
   displayDiv.innerHTML = assignments
   .map(
       (item) => `
-      <div style="border-bottom: 1px solid #ccc; padding: 4px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="border-bottom: 1px solid #ff0000ff; padding: 4px; display: flex; justify-content: space-between; align-items: center; width: 455px;">
         <div style="flex: 1;">
-          <input type="checkbox" class="completeBox" data-id="${item.id}" ${item.completed ? 'checked' : ''}>
-          <strong style="${item.completed ? 'text-decoration: line-through; color: gray;' : ''}">${item.className}</strong><br>
-          <span style="${item.completed ? 'text-decoration: line-through; color: gray;' : ''}">
-            ${item.assignment} - <em>${item.dueDate}</em>
-          </span>
+          <input style="display: flex; float: left;" type="checkbox" class="completeBox" data-id="${item.id}" ${item.completed ? 'checked' : ''}>
+          <div style="display: flex; float: left; align-items: center; height: 20px;">
+            <strong style="${item.completed ? 'text-decoration: line-through; color: gray;' : 'font-size: 15px;'}">${item.className}</strong>
+          </div>
+          <div style="display: flex; float: right; align-items: center; padding-right: 100px;">
+            <span style="${item.completed ? 'text-decoration: line-through; color: gray;' : ''}">
+              ${item.assignment} - <em>${item.dueDate}</em>
+            </span>
+          </div>
         </div>
         <button class="deleteBtn" data-id="${item.id}" style="margin-left: 6px;">&#128465</button>
-      </div>
+      </div>  
     `
     )
     .join('');
