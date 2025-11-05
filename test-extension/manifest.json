@@ -5,13 +5,13 @@
   "manifest_version": 3,
   "permissions": ["storage"],
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "hello_extensions.png"
+    "default_popup": "dashboard.html",
+    "default_icon": "study_sprite_logo.png"
   },
   "icons": {
-    "16": "hello_extensions.png",
-    "48": "hello_extensions.png",
-    "128": "hello_extensions.png" 
+    "16": "study_sprite_logo.png",
+    "48": "study_sprite_logo.png",
+    "128": "study_sprite_logo.png" 
   },
   "background": {
     "service_worker": "background.js"

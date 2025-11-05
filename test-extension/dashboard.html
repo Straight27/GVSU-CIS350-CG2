@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<title>Study Sprite</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body style="background-color: lightblue;">
+
+		<!-- Displays the top left section, which contains the gif of the sprite -->
+		<div style="border: 5px solid #333333; height: 150px; width: 150px; display: flex; float: left; margin-right: 10px;">
+			<img src="temp_gif.gif" alt="Hello as an image" style="padding: 11px;">
+		</div>
+
+		<!-- Displays the top right section, which allows the user to add any of their assignments -->
+		<div style="border: 5px solid #333; height:140px; width: 310px; padding: 5px; display: flex; flex-direction: column;">
+  			<input type="text" id="classInput" style="margin-bottom: 5px;" placeholder="Class name..." />
+  			<input type="text" id="assignmentInput" style="margin-bottom: 5px;" placeholder="Assignment name..." />
+  			<input type="text" id="dueDateInput" style="margin-bottom: 5px;" placeholder="Due date..." />
+			<select id="all_months" name="month" style="width: 100px;" placeholder="Month">
+  				<option value="Month" disabled selected hidden>Month</option>
+				<option value="January">January</option>
+  				<option value="February">February</option>
+  				<option value="March">March</option>
+  				<option value="April">April</option>
+			</select>
+ 			<button id="saveBtn">Save</button>
+  			<p id="status"></p>
+		</div>
+
+		<!-- Displays the lower box, which shows any of the user's uploaded assignments -->
+		<div id="displayDiv" style="border: 5px solid #333333; padding: 5px; margin-top: 10px; max-height: 150px; overflow-y: auto;">
+    		No assignments saved yet.
+  		</div>
+
+		<p><a href="shop.html" class="button">Closet</a></p>
+		<script src="dashboard.js"></script>
+	</body>
+</html>

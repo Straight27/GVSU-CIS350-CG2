@@ -36,3 +36,7 @@ html {
   	padding: 10px;
  	margin-top: auto; /* Pushes this item to the bottom */
 }
+
+.inputBox {
+	width: 100px;
+}
