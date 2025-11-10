@@ -1,0 +1,19 @@
+{
+  "name": "Study Sprite",
+  "description": "Academic Tracker",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "dashboard.html",
+    "default_icon": "study_sprite_logo.png"
+  },
+  "icons": {
+    "16": "study_sprite_logo.png",
+    "48": "study_sprite_logo.png",
+    "128": "study_sprite_logo.png" 
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
