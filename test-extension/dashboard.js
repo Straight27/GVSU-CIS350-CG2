@@ -45,6 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("tokenDisplay").textContent =
             result.userTokens || 0;
     });
+  selectedHatLocation = chrome.storage.sync.get(["selectedHat"], result => {
+    const image = document.getElementById("spriteLocation");
+    image.src = result.selectedHat;
+  }
+  )
 });
 
 // Listen for changes across devices/popups
@@ -139,6 +144,10 @@ function toggleComplete(id, isChecked) {
 }
 
 //Open pop-up form
+document.getElementById("openFormButton").addEventListener('click', () => {
+  openForm()
+});
+
 function openForm() {
   document.getElementById("AssignmentForm").style.display = "block";
 }

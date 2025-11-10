@@ -1,0 +1,42 @@
+.button {
+  	font: bold 20px Arial;
+	text-decoration: none;
+  	background-color: #EEEEEE;
+	font-weight: bold;
+  	color: #333333;
+  	padding: 4px 10px 4px 10px;
+    border-top: 2px solid #CCCCCC;
+  	border-right: 2px solid #333333;
+	border-bottom: 2px solid #333333;
+  	border-left: 2px solid #CCCCCC;
+	border-radius: 20px;
+	transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.button:hover {
+    background-color: #2980b9; /* Darker shade of blue on hover */
+}	
+
+html {
+	width: 516px;  /* max: 800px */
+    height: 316px; /* max: 600px */
+}
+
+.flex-container {
+	display: flex;
+  	flex-direction: column; /* Optional, for vertical flow */
+	height: 275px;
+  	border: 5px solid #333333;
+    justify-content: flex-end;
+	align-items: center;
+}
+
+.flex-item {
+  	background-color: lightgreen;
+  	padding: 10px;
+ 	margin-top: auto; /* Pushes this item to the bottom */
+}
+
+.inputBox {
+	width: 100px;
+}
