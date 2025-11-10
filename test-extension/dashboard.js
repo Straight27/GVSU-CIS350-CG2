@@ -1,8 +1,13 @@
 // Save a new assignment
+const userTokens = 0;
+
 document.getElementById('saveBtn').addEventListener('click', () => {
   const className = document.getElementById('classInput').value.trim();
   const assignment = document.getElementById('assignmentInput').value.trim();
-  const dueDate = document.getElementById('dueDateInput').value.trim();
+  const dueDateYear = document.getElementById('dueDateYear').value.trim();
+  const dueDateMonth = document.getElementById('dueDateMonth').value.trim();
+  const dueDateDay = document.getElementById('dueDateDay').value.trim();
+  const dueDate = dueDateMonth + "/" + dueDateDay + "/" + dueDateYear;
 
   if (!className || !assignment || !dueDate) {
     document.getElementById('status').textContent = 'Please fill all fields.';
@@ -21,7 +26,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     };
 
     assignments.push(newEntry);
-
+    console.log(assignments);
     chrome.storage.sync.set({ assignments }, () => {
       document.getElementById('status').textContent = 'Saved!';
       setTimeout(() => (document.getElementById('status').textContent = ''), 1000);
@@ -36,6 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.sync.get(['assignments'], (result) => {
     updateDisplay(result.assignments || []);
   });
+  chrome.storage.sync.get(["userTokens"], (result) => {
+        document.getElementById("tokenDisplay").textContent =
+            result.userTokens || 0;
+    });
 });
 
 // Listen for changes across devices/popups
@@ -49,7 +58,9 @@ chrome.storage.onChanged.addListener((changes, area) => {
 function clearInputs() {
   document.getElementById('classInput').value = '';
   document.getElementById('assignmentInput').value = '';
-  document.getElementById('dueDateInput').value = '';
+  document.getElementById('dueDateMonth').value = 'Month';
+  document.getElementById('dueDateDay').value = 'Day';
+  document.getElementById('dueDateYear').value = 'Year';
 }
 
 // Update display div with all assignments
@@ -64,7 +75,7 @@ function updateDisplay(assignments) {
   .map(
       (item) => `
       <div style="border-bottom: 1px solid #ccc; padding: 4px; display: flex; justify-content: space-between; align-items: center;">
-          <input type="checkbox" class="completeBox" data-id="${item.id}" ${item.completed ? 'checked' : ''}>
+          <input type="checkbox" class="completeBox" data-id="${item.id}" ${item.completed ? 'checked disabled' : ''}>
           <p style="margin: 0px; width: 50px;">
             <strong style="${item.completed ? 'text-decoration: line-through; color: gray;' : ''}">${item.className}</strong><br>
           </p>
@@ -114,5 +125,16 @@ function toggleComplete(id, isChecked) {
     chrome.storage.sync.set({ assignments: updated }, () => {
       updateDisplay(updated);
     });
+    chrome.storage.sync.get(["userTokens"], (result) => {
+        let tokens = result.userTokens || 0;
+
+        tokens += 1; // Give reward
+
+        chrome.storage.sync.set({ userTokens: tokens }, () => {
+            // Update UI
+            document.getElementById("tokenDisplay").textContent = tokens;
+        });
+    });
   });
 }
+
