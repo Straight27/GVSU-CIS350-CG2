@@ -1,0 +1,88 @@
+body {
+	background: #f2f7ff;
+}
+
+.button {
+	display: block;
+  	font: 20px Garamond;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+  	color: #333333;
+
+	
+  	background-color: #ace6fb;
+
+	/* Adjust the way the button works */
+  	padding: 4px 10px 4px 10px ;
+	border: 2px solid #333333;
+	border-radius: 10px;
+
+	/* positions closet or settings button at the bottom of the page */
+	position: absolute;
+	width: 475px;
+	bottom: 3px;
+	transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.button:hover {
+	background-color: #3d7eaa;  /* Darker shade of blue on hover */
+}	
+
+html {
+	width: 516px;  /* max: 800px */
+    height: 316px; /* max: 600px */
+}
+
+.flex-container {
+	display: flex;
+  	flex-direction: column; /* Optional, for vertical flow */
+	height: 275px;
+  	border: 5px solid #333333;
+    justify-content: flex-end;
+	align-items: center;
+}
+
+.flex-item {
+  	background-color: lightgreen;
+  	padding: 10px;
+ 	margin-top: auto; /* Pushes this item to the bottom */
+}
+
+.inputBox {
+	width: 100px;
+}
+
+.form-popup {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 15px;
+	border: 3px solid #f1f1f1;
+	z-index: 9;
+}
+
+.open-button {
+	position: fixed;
+	bottom: 140px;
+    right: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#displayDiv {
+	position: fixed;
+	display: block;
+  	font: 15px Garamond;
+	width: 475px;
+	bottom: 100px;
+
+	padding: 4px 10px 4px 10px ;
+	border: 2px solid #333333;
+	border-radius: 5px;
+}
+

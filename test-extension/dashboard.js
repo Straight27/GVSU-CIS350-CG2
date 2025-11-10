@@ -138,3 +138,13 @@ function toggleComplete(id, isChecked) {
   });
 }
 
+//Open pop-up form
+function openForm() {
+  document.getElementById("AssignmentForm").style.display = "block";
+}
+
+
+// closes pop-up form
+function closeForm() {
+  document.getElementById("AssignmentForm").style.display = "none";
+}
