@@ -53,6 +53,7 @@ html {
 	width: 100px;
 }
 
+/* Form isn't visible, but is still positioned to be at bottom when popped-up*/
 .form-popup {
 	display: none;
 	position: fixed;
@@ -60,10 +61,12 @@ html {
 	right: 15px;
 	border: 3px solid #f1f1f1;
 	background-color: #007bff;
-	width: 450px;
+	width: 350px;
 	z-index: 9;
 }
 
+
+/* When Add assignment button is clicked form lay-out displays */
 .open-button {
 	position: fixed;
 	bottom: 140px;
@@ -76,6 +79,7 @@ html {
     cursor: pointer;
 }
 
+/* formating of content within pop-up */
 #displayDiv {
 	position: fixed;
 	display: block;
@@ -83,8 +87,13 @@ html {
 	width: 475px;
 	bottom: 100px;
 
+	/* Formats No assignment saved container */
 	padding: 4px 10px 4px 10px ;
 	border: 2px solid #333333;
 	border-radius: 5px;
 }
 
+.FormContainer {
+  text-align: left;   /* Align text to the left */
+  padding: 10px;      /* Add space so text doesn’t touch the border */
+}
