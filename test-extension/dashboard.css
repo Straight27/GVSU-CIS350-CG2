@@ -1,7 +1,3 @@
-body {
-	background: #f2f7ff;
-}
-
 .button {
 	display: block;
   	font: 20px Garamond;
@@ -10,16 +6,15 @@ body {
 	font-weight: bold;
   	color: #333333;
 
-	
-  	background-color: #ace6fb;
-
 	/* Adjust the way the button works */
   	padding: 4px 10px 4px 10px ;
-	border: 2px solid #333333;
+	border: 1.5px solid #333333;
 	border-radius: 10px;
 
 	/* positions closet or settings button at the bottom of the page */
 	position: absolute;
+	color: white;
+	background-color: #007bff;
 	width: 475px;
 	bottom: 3px;
 	transition: background-color 0.3s ease; /* Smooth transition for background color */
@@ -30,15 +25,15 @@ body {
 }	
 
 html {
-	width: 516px;  /* max: 800px */
-    height: 356px; /* max: 600px */
+	width: 516px; 
+    height: 356px; 
 }
 
 .flex-container {
 	display: flex;
   	flex-direction: column; /* Optional, for vertical flow */
 	height: 275px;
-  	border: 5px solid #333333;
+  	border: 2px solid #333333;
     justify-content: flex-end;
 	align-items: center;
 }
@@ -56,31 +51,48 @@ html {
 /* Form isn't visible, but is still positioned to be at bottom when popped-up*/
 .form-popup {
 	display: none;
+	padding-left: 8px;
 	position: fixed;
 	bottom: 0;
 	right: 15px;
-	border: 3px solid #f1f1f1;
-	background-color: #007bff;
+	border: 1px solid #333333;
+	background-color: #a6c8ff;
 	width: 375px;
 	z-index: 9;
 }
 
-
-/* When Add assignment button is clicked form lay-out displays */
+/* Add assignment button design & is clicked form lay-out displays */
 .open-button {
 	position: fixed;
-	bottom: 140px;
+	bottom: 195px;
     right: 20px;
     padding: 10px;
+
+	/*Form display design*/
     background-color: #007bff;
+	font: 14px Garamond;
     color: white;
-    border: none;
-    border-radius: 5px;
+	border: 1.3px solid #333333;
+    border-radius: 10px;
     cursor: pointer;
 }
 
-/* formating of content within pop-up */
+#displayDiv {
+	max-height: 125px; /*125*/
+	overflow-y: auto;
+	display: block;
+	margin-top: 100px;
+	
 
+	font: 15px Garamond;
+	width: 475px;
+
+	border: 1px solid #333333;
+	border-radius: 5px;
+	padding: 2px 5px 2px 5px;
+}
+
+/* formating of content within pop-up */
 .FormContainer {
   text-align: left;   /* Align text to the left */
   padding: 10px;      /* Add space so text doesn’t touch the border */
