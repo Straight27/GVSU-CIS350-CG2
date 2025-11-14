@@ -78,11 +78,10 @@ html {
 }
 
 #displayDiv {
-	max-height: 125px; /*125*/
+	max-height: 125px;
 	overflow-y: auto;
 	display: block;
-	margin-top: 100px;
-	
+	/*	margin-top: 100px; */
 
 	font: 15px Garamond;
 	width: 475px;
@@ -96,4 +95,18 @@ html {
 .FormContainer {
   text-align: left;   /* Align text to the left */
   padding: 10px;      /* Add space so text doesn’t touch the border */
+}
+
+/* Positions how much currency you currently have */
+#tokenDisplay {
+
+	display: block;
+	position: relative;
+	top: 135px;
+
+	margin-left: 5px;
+	margin-bottom: 10px;
+
+	padding-left: 30px;
+	font: 15px Garamond;
 }
