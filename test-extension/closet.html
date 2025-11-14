@@ -1,34 +1,75 @@
 <!DOCTYPE html>
 <html>
-	<head>
-    	<title>Study Sprite</title>
-    	<link rel="stylesheet" href="closet.css">
-	</head>
-	<body style="background-color: #f2f7ff;">
-		<div style="display:flex; width: 500px; justify-content: space-between;">
-			<div style="height: 120px; width: 100px; border: 1.5px black solid; margin: 3px; border-radius: 5px;">
-				<img src="/closet/study_sprite_logo.png" id="hatOneImage" style="width: 75px; height: 75px; margin: 2px;">
-				<button id="purchaseHatOne" >Purchase</button>
-				<button id="equipHatOne" style="opacity: 0; width: 75px; text-align: center; height: 20px;">Equip</button>
-			</div>	
-			<div style="height: 120px; width: 100px; border: 1.5px black solid; margin: 3px; border-radius: 5px;">
-				<img src="/closet/temp_gif.gif" id="hatTwoImage" style="width: 75px; height: 75px; margin: 2px;">
-				<button id="purchaseHatTwo">Purchase</button>
-				<button id="equipHatTwo" style="opacity: 0; width: 75px; text-align: center;">Equip</button>
-			</div>
-			<div style="height: 120px; width: 100px; border: 1.5px black solid; margin: 3px; border-radius: 5px;">
-				<!--image-->
-				<p style="width: 75px; height: 75px; margin: 1.5px;">Test</p>
-				<p style="width: 75px; height: 20px; text-align:center;">5 coins</p>
-			</div>
-			<div style="height: 120px; width: 100px; border: 1.5px black solid; margin: 3px; border-radius: 5px;">
-				<!--image-->
-				<p style="width: 75px; height: 75px; margin: 1.5px;">Test</p>
-				<p style="width: 75px; height: 20px; text-align:center;">5 coins</p>
-			</div>
-		</div>
-		<button id="devRemove">Dev</button>
-		<p><a href="dashboard.html" class="button flex-item">Home</a></p>
-		<script src="closet.js"></script>
-	</body>
+<head>
+    <title>Study Sprite</title>
+    <link rel="stylesheet" href="closet.css">
+</head>
+
+<body class="page-bg">
+
+<div class="shop-container">
+
+    <div class="item-box">
+        <img src="/closet/study_sprite_logo.png" id="hatOneImage" class="item-image">
+        <button id="purchaseHatOne" class="purchase-btn">Purchase</button>
+		<p class="item-price">5 coins</p>
+        <button id="equipHatOne" class="equip-btn">Equip</button> <!-- temporary im assuming --> 
+
+    </div>
+
+    <div class="item-box">
+        <img src="/closet/temp_gif.gif" id="hatTwoImage" class="item-image">
+        <button id="purchaseHatTwo" class="purchase-btn">Purchase</button>
+		<p class="item-price">5 coins</p>
+        <button id="equipHatTwo" class="equip-btn">Equip</button>
+    </div>
+
+    <div class="item-box">
+		<img src="/closet/temp_gif.gif" id="hatTwoImage" class="item-image">
+        <!--<p class="item-img-placeholder">Test</p> -->
+		<button id="purchaseHatTwo" class="purchase-btn">Purchase</button>
+        <p class="item-price">5 coins</p>
+    </div>
+
+    <div class="item-box">
+		<img src="/closet/temp_gif.gif" id="hatTwoImage" class="item-image">
+        <!--<p class="item-img-placeholder">Test</p> -->
+		<button id="purchaseHatTwo" class="purchase-btn">Purchase</button>
+        <p class="item-price">5 coins</p>
+    </div>
+
+    <!-- second row -->
+    <div class="item-box">
+		<img src="/closet/temp_gif.gif" id="hatTwoImage" class="item-image">
+        <!--<p class="item-img-placeholder">Test</p> -->
+		<button id="purchaseHatTwo" class="purchase-btn">Purchase</button>
+        <p class="item-price">5 coins</p>
+    </div>
+
+    <div class="item-box">
+		<img src="/closet/temp_gif.gif" id="hatTwoImage" class="item-image">
+        <!--<p class="item-img-placeholder">Test</p> -->
+		<button id="purchaseHatTwo" class="purchase-btn">Purchase</button>
+        <p class="item-price">5 coins</p>
+    </div>
+
+    <div class="item-box">
+		<img src="/closet/temp_gif.gif" id="hatTwoImage" class="item-image">
+        <!--<p class="item-img-placeholder">Test</p> -->
+		<button id="purchaseHatTwo" class="purchase-btn">Purchase</button>
+        <p class="item-price">5 coins</p>
+    </div>
+
+    <div class="item-box">
+		<img src="/closet/temp_gif.gif" id="hatTwoImage" class="item-image">
+        <!--<p class="item-img-placeholder">Test</p> -->
+		<button id="purchaseHatTwo" class="purchase-btn">Purchase</button>
+        <p class="item-price">5 coins</p>
+    </div>
+</div>
+
+<button id="devRemove">Dev</button>
+<p><a href="dashboard.html" class="button flex-item">Dashboard</a></p>
+<script src="closet.js"></script>
+</body>
 </html>
