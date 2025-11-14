@@ -1,6 +1,6 @@
 // Save a new assignment
 const userTokens = 0;
-
+document.getElementById('closeButton').addEventListener('click', closeForm());
 document.getElementById('saveBtn').addEventListener('click', () => {
   const className = document.getElementById('classInput').value.trim();
   const assignment = document.getElementById('assignmentInput').value.trim();
@@ -80,21 +80,18 @@ function updateDisplay(assignments) {
   .map(
       (item) => `
       <div style="border-bottom: 1px solid #ccc; padding: 4px; display: flex; justify-content: space-between; align-items: center;">
-          <input type="checkbox" class="completeBox" data-id="${item.id}" ${item.completed ? 'checked disabled' : ''}>
-          <p style="margin: 0px; width: 50px;">
-            <strong style="${item.completed ? 'text-decoration: line-through; color: gray;' : ''}">${item.className}</strong><br>
-          </p>
-          <p style="margin: 0px; width: 100px; margin-left: 50px; text-align: center;">
+        <div style="flex: 1;">
+          <input style="display: flex; float: left;" type="checkbox" class="completeBox" data-id="${item.id}" ${item.completed ? 'checked disabled' : ''}>
+          <div style="display: flex; float: left; align-items: center; height: 20px;">
+            <strong style="${item.completed ? 'text-decoration: line-through; color: gray;' : 'font-size: 15px;'}">${item.className}</strong>
+          </div>
+          <div style="display: flex; float: right; align-items: center; padding-right: 100px;">
             <span style="${item.completed ? 'text-decoration: line-through; color: gray;' : ''}">
-              ${item.assignment}
+              ${item.assignment} - <em>${item.dueDate}</em>
             </span>
-          </p>
-          <p style="margin: 0px; width: 60px; margin-left: 50px; text-align: center;">
-            <span style="${item.completed ? 'text-decoration: line-through; color: gray;' : ''}">
-              <em>${item.dueDate}</em>
-            </span>
-          </p>
-        <button class="deleteBtn" data-id="${item.id}" style="margin-left: 50px;">&#128465</button>
+          </div>
+        </div>
+        <button class="deleteBtn" data-id="${item.id}" style="margin-left: 6px;">&#128465</button>
       </div>
     `
     )

@@ -10,15 +10,16 @@
 		<div style="border: 5px solid #333333; height: 150px; width: 150px; display: flex; float: left; margin-right: 10px;">
 			<img id="spriteLocation" src="/closet/temp_gif.gif" alt="Hello as an image" style="padding: 11px;">
 		</div>
+    <span id="tokenDisplay">0</span>
+
 
 <!-- Add Assignment Button -->
 <button style="display: flex;" class="open-button" id="openFormButton">Add Assignment</button>
 
 <!-- The Pop-up Form -->
 <div class="form-popup" id="AssignmentForm">
-  <form class="FormContainer" onsubmit="return false;">
+  <form class="formContainer">
     <h2>Fill in Info to Add Assignment</h2>
-
     <!-- Class Input -->
     <label for="classname">Class Name:</label>
     <input type="text" id="classInput" placeholder="Add class name..." style="margin-bottom:5px;" /><br>
@@ -28,8 +29,8 @@
     <input type="text" id="assignmentInput" placeholder="Add assignment name..." style="margin-bottom:5px;" /><br>
 
     <!-- Due Date Section -->
-    <label for="duedate">Due Date:</label>
-    <div class="date" style="margin-bottom: 5px; width: 310px; text-align: center;">
+    <div class="date" style="margin-bottom: 5px; width: 310px; text-align: left;">
+      <label for="duedate">Due Date:</label>
       <select name="dueDateMonth" id="dueDateMonth">
         <option value="Month" disabled selected hidden>Month</option>
         <option value="01">1</option>
@@ -90,7 +91,7 @@
 
     <!-- Buttons -->
     <button id="saveBtn">Save Assignment</button>
-    <button type="button" onclick="closeForm()">Close</button>
+    <button id="closeButton">Close</button>
 
     <p id="status"></p>
   </form>
@@ -98,12 +99,11 @@
 
 
 		<!-- Displays the lower box, which shows any of the user's uploaded assignments -->
-		<div id="displayDiv">
+		<div id="displayDiv" style="border: 5px solid #333333; padding: 5px; margin-top: 10px; max-height: 125px; overflow-y: auto; width: 480px;">
     		No assignments saved yet.
   		</div>
 
 		<p><a href="closet.html" class="button">Closet</a></p>
-		<span id="tokenDisplay">0</span>
 		<script src="dashboard.js"></script>
 	</body>
 </html>
