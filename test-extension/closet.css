@@ -1,15 +1,20 @@
 .button {
+	display: block;
   	font: 20px Garamond;
+	text-align: center;
 	text-decoration: none;
-  	background-color: #EEEEEE;
 	font-weight: bold;
   	color: #333333;
+
   	padding: 4px 10px 4px 10px;
-    border-top: 2px solid #CCCCCC;
-  	border-right: 2px solid #333333;
-	border-bottom: 2px solid #333333;
-  	border-left: 2px solid #CCCCCC;
-	border-radius: 20px;
+	border: 1.5px solid #333333;
+	border-radius: 10px;
+
+	position: absolute;
+	color: white;
+	background-color: #007bff;
+	width: 475px;
+	bottom: 3px;	
 	transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
@@ -31,17 +36,6 @@ html {
 	align-items: center;
 }
 
-.flex-item {
-  	background-color: lightgreen;
-  	padding: 10px;
- 	margin-top: auto; /* Pushes this item to the bottom */
-}
-
-.inputBox {
-	width: 100px;
-}
-
-
 #displayDiv {
 	position: fixed;
 	display: block;
@@ -55,3 +49,11 @@ html {
 	border: 2px solid #333333;
 	border-radius: 5px;
 }
+
+
+/*
+What is this for?
+.inputBox {
+	width: 100px;
+}
+*/
