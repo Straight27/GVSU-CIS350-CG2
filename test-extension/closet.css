@@ -18,7 +18,7 @@ html {
 
 /* each item card */
 .item-box {
-    height: 120px;
+    height: 122px;
     width: 100px;
     border: 1.5px solid black;
     border-radius: 5px;
@@ -45,7 +45,7 @@ html {
     width: 75px;
     height: 20px;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 
 /* Purchase button (visible) */
@@ -86,4 +86,12 @@ html {
 	width: 475px;
 	bottom: 3px;
 	transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.coin-icon {
+	width: 14px;
+	height: 14px;
+	margin-right: 5px;
+	vertical-align: middle;
+	z-index: -5;
 }
