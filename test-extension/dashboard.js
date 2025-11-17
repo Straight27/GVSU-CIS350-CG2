@@ -37,8 +37,8 @@ document.getElementById('saveBtn').addEventListener('click', () => {
 });
 
 // Get a quote from an API
-function getDailyQuote(){
-      fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
+function getDailyQuote() {
+      return fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -53,6 +53,37 @@ function getDailyQuote(){
             console.error('There was a problem with the fetch operation:', error);
         });
 }
+
+// Filters quotes so it has a max length (150 characters)
+function filterQuoteByLength(quoteObject, minLength, maxLength) {
+  if (!quoteObject || !quoteObject.quote) {
+    return false;
+  }
+  const quoteText = quoteObject.quote;
+  return quoteText.length >= minLength && quoteText.length <= maxLength;
+}
+
+async function displayFilteredQuote() {
+  let quoteData;
+  let attempts = 0;
+  const maxAttempts = 10;
+
+  do {
+    quoteData = await displayFilteredQuote(); // Waits for the promise to resolve (true, false)
+    attempts++
+    if (quoteData && filterQuoteByLength(quoteData, 50, 150)) {
+      document.getElementById("inspirationalQuote"). textContent = quoteData.quote;
+      document.getElementById("quoteAuthor").textContent = ` - ${quoteData.author}`;
+      break;
+    }
+  } while (attempts < maxAttempts);
+  
+  if (attempts === maxAttempts && (!quoteData || !filterQuoteByLength(quoteData, 50, 150))) {
+    document.getElementById('quoteDisplay').textContent = "Could not find a quote matching criteria";
+    document.getElementById('quoteAuthor').textContent = "";
+  }
+}
+
 
 // Load data on startup
 document.addEventListener('DOMContentLoaded', () => {

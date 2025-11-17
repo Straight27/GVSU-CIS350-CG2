@@ -129,3 +129,8 @@ html {
 	position: absolute;
 	top: 135px
 }
+
+/* Trying to change size of frog on dashboard */
+img.idle_frog.gif {
+	width: 150px
+}
