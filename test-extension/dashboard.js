@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   selectedHatLocation = chrome.storage.sync.get(["selectedHat"], result => {
     const image = document.getElementById("spriteLocation");
-    image.src = result.selectedHat;
+    image.src = result.selectedHat || "/closet/study_sprite_logo.png";
   });
   getDailyQuote();
 });
