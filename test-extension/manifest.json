@@ -11,7 +11,7 @@
   "icons": {
     "16": "/closet/study_sprite_logo.png",
     "48": "/closet/study_sprite_logo.png",
-    "128": ".closet/study_sprite_logo.png" 
+    "128": "/closet/study_sprite_logo.png" 
   },
   "background": {
     "service_worker": "background.js"
