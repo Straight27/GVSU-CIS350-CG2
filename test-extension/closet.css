@@ -31,6 +31,7 @@ html {
     width: 75px;
     height: 75px;
     margin: 2px;
+    border-radius: 5px;
 }
 
 /* placeholder for Test */

@@ -2,6 +2,7 @@ window.onload = function () {
     chrome.storage.sync.set({ hatOne: true });
     updateHatOne();
     updateHatTwo();
+    updateHatThree();
     checkEquippedHat();
 };
 
@@ -35,6 +36,20 @@ document.getElementById('purchaseHatTwo').addEventListener('click', () => {
     });
 });
 
+document.getElementById('purchaseHatThree').addEventListener('click', () => {
+    chrome.storage.sync.get(["userTokens"], (result) => {
+        let tokens = result.userTokens || 0;
+
+        if (tokens >= 5) {
+            tokens -= 5;
+
+            chrome.storage.sync.set({ userTokens: tokens, hatThree: true }, () => {
+                updateHatThree();
+            });
+        }
+    });
+});
+
 // EQUIP HAT ONE
 document.getElementById('equipHatOne').addEventListener('click', () => {
     chrome.storage.sync.set({ selectedHat: "/closet/study_sprite_logo.png" }, () => {
@@ -45,6 +60,12 @@ document.getElementById('equipHatOne').addEventListener('click', () => {
 // EQUIP HAT TWO
 document.getElementById('equipHatTwo').addEventListener('click', () => {
     chrome.storage.sync.set({ selectedHat: "/closet/temp_gif.gif" }, () => {
+        checkEquippedHat();
+    });
+});
+
+document.getElementById('equipHatThree').addEventListener('click', () => {
+    chrome.storage.sync.set({ selectedHat: "/closet/idle_frog.gif" }, () => {
         checkEquippedHat();
     });
 });
@@ -87,6 +108,24 @@ function updateHatTwo() {
     });
 }
 
+function updateHatThree() {
+    chrome.storage.sync.get(["hatThree"], (result) => {
+        const purchased = result.hatThree || false;
+
+        if (purchased) {
+            document.getElementById("purchaseHatThree").style.display = "none";
+            document.getElementById("coinCountHatThree").style.display = "none";
+            document.getElementById("equipHatThree").style.display = "block";
+            document.getElementById("hatThreeImage").style.opacity = 1;
+        } else {
+            document.getElementById("purchaseHatThree").style.display = "block";
+            document.getElementById("coinCountHatThree").style.display = "inline";
+            document.getElementById("equipHatThree").style.display = "none";
+            document.getElementById("hatThreeImage").style.opacity = 0.3;
+        }
+    });
+}
+
 // CHECK WHICH HAT IS EQUIPPED
 function checkEquippedHat() {
     chrome.storage.sync.get(["selectedHat"], (result) => {
@@ -95,17 +134,26 @@ function checkEquippedHat() {
         if (selected === "/closet/study_sprite_logo.png") {
             document.getElementById("equipHatOne").textContent = "Equipped";
             document.getElementById("equipHatTwo").textContent = "Equip";
+            document.getElementById("equipHatThree").textContent = "Equip";
         }
 
         else if (selected === "/closet/temp_gif.gif") {
             document.getElementById("equipHatOne").textContent = "Equip";
             document.getElementById("equipHatTwo").textContent = "Equipped";
+            document.getElementById("equipHatThree").textContent = "Equip";
         }
-
+        
+        else if (selected === "/closet/idle_frog.gif") {
+            document.getElementById("equipHatOne").textContent = "Equip";
+            document.getElementById("equipHatTwo").textContent = "Equip";
+            document.getElementById("equipHatThree").textContent = "Equipped";
+        }
         else {
             // Nothing equipped yet
             document.getElementById("equipHatOne").textContent = "Equip";
             document.getElementById("equipHatTwo").textContent = "Equip";
+            document.getElementById("equipHatThree").textContent = "Equip";
+
         }
     });
 }
@@ -126,6 +174,7 @@ document.getElementById('devRemove').addEventListener('click', () => {
     }, () => {
         updateHatOne();
         updateHatTwo();
+        updateHatThree();
         checkEquippedHat();
 
     });
