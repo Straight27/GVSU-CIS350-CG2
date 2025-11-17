@@ -36,6 +36,24 @@ document.getElementById('saveBtn').addEventListener('click', () => {
   });
 });
 
+// Get a quote from an API
+function getDailyQuote(){
+      fetch('https://motivational-spark-api.vercel.app/api/quotes/random')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // Parse the response body as JSON
+        })
+        .then(data => {
+        document.getElementById("inspirationalQuote").innerHTML =
+        `${data.quote}  <span style="font-size: 0.8em;">- ${data.author || "Unknown"}</span>`;
+})        
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}
+
 // Load data on startup
 document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.sync.get(['assignments'], (result) => {
@@ -43,13 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   chrome.storage.sync.get(["userTokens"], (result) => {
         document.getElementById("tokenDisplay").textContent =
-            result.userTokens || 0;
-    });
+            "Tokens " + result.userTokens || 0;
+        
+  });
   selectedHatLocation = chrome.storage.sync.get(["selectedHat"], result => {
     const image = document.getElementById("spriteLocation");
     image.src = result.selectedHat;
-  }
-  )
+  });
+  getDailyQuote();
 });
 
 // Listen for changes across devices/popups
