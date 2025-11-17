@@ -72,7 +72,7 @@ async function displayFilteredQuote() {
     quoteData = await displayFilteredQuote(); // Waits for the promise to resolve (true, false)
     attempts++
     if (quoteData && filterQuoteByLength(quoteData, 50, 150)) {
-      document.getElementById("inspirationalQuote"). textContent = quoteData.quote;
+      document.getElementById("DataQuote"). textContent = quoteData.quote;
       document.getElementById("quoteAuthor").textContent = ` - ${quoteData.author}`;
       break;
     }

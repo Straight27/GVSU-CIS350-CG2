@@ -130,7 +130,19 @@ html {
 	top: 135px
 }
 
-/* Trying to change size of frog on dashboard */
-img.idle_frog.gif {
-	width: 150px
+/* Trying to change size of frog on dashboard (Doesn't work) */
+.spriteContainer {
+	border: 2px solid #333333; 
+	height: 150px; 
+	width: 150px; 
+	display: flex; 
+	float: left; 
+	margin-right: 10px; 
+	border-radius: 5px; 
+	margin-bottom: 5px;
+}
+
+.spriteContainer img {
+	object-fit: cover;
+	display: block;
 }
