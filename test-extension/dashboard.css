@@ -97,16 +97,35 @@ html {
   padding: 10px;      /* Add space so text doesn’t touch the border */
 }
 
+
+#inspirationalQuote {
+	display: flex;
+	position:absolute;
+	flex-direction: column;
+	padding: 5px;
+	top: 10px;
+	left: 175px;
+	margin-right: 8px;
+
+	border: 1px solid #333333;
+	border-radius: 5px;
+}
+
+
 /* Positions how much currency you currently have */
 #tokenDisplay {
 
 	display: block;
 	position: relative;
 	top: 135px;
-
-	margin-left: 5px;
-	margin-bottom: 10px;
+	left: 32px;
 
 	padding-left: 30px;
 	font: 15px Garamond;
+}
+
+/* Positions coin icon 30/30 */
+.coinIcon {
+	position: absolute;
+	top: 135px
 }

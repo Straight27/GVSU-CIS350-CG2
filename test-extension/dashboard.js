@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   chrome.storage.sync.get(["userTokens"], (result) => {
         document.getElementById("tokenDisplay").textContent =
-            "Tokens " + result.userTokens || 0;
+            result.userTokens || 0;
         
   });
   selectedHatLocation = chrome.storage.sync.get(["selectedHat"], result => {
