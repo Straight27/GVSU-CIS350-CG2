@@ -3,6 +3,8 @@ window.onload = function () {
     updateHatOne();
     updateHatTwo();
     updateHatThree();
+    updateHatFour();
+    updateHatFive();
     checkEquippedHat();
 };
 
@@ -36,6 +38,7 @@ document.getElementById('purchaseHatTwo').addEventListener('click', () => {
     });
 });
 
+ // PURCHASE HAT THREE
 document.getElementById('purchaseHatThree').addEventListener('click', () => {
     chrome.storage.sync.get(["userTokens"], (result) => {
         let tokens = result.userTokens || 0;
@@ -45,6 +48,37 @@ document.getElementById('purchaseHatThree').addEventListener('click', () => {
 
             chrome.storage.sync.set({ userTokens: tokens, hatThree: true }, () => {
                 updateHatThree();
+            });
+        }
+    });
+});
+
+ // PURCHASE HAT FOUR
+document.getElementById('purchaseHatFour').addEventListener('click', () => {
+    chrome.storage.sync.get(["userTokens"], (result) => {
+        let tokens = result.userTokens || 0;
+
+        if (tokens >= 5) {
+            tokens -= 5;
+
+            chrome.storage.sync.set({ userTokens: tokens, hatFour: true }, () => {
+                updateHatFour();
+            });
+        }
+    });
+});
+
+
+ // PURCHASE HAT FIVE
+document.getElementById('purchaseHatFive').addEventListener('click', () => {
+    chrome.storage.sync.get(["userTokens"], (result) => {
+        let tokens = result.userTokens || 0;
+
+        if (tokens >= 5) {
+            tokens -= 5;
+
+            chrome.storage.sync.set({ userTokens: tokens, hatFive: true }, () => {
+                updateHatFive();
             });
         }
     });
@@ -64,8 +98,23 @@ document.getElementById('equipHatTwo').addEventListener('click', () => {
     });
 });
 
+// EQUIP HAT THREE
 document.getElementById('equipHatThree').addEventListener('click', () => {
     chrome.storage.sync.set({ selectedHat: "/closet/idle_frog.gif" }, () => {
+        checkEquippedHat();
+    });
+});
+
+// EQUIP HAT FOUR
+document.getElementById('equipHatFour').addEventListener('click', () => {
+    chrome.storage.sync.set({ selectedHat: "/closet/z30by30Coin.png" }, () => {
+        checkEquippedHat();
+    });
+});
+
+// EQUIP HAT FIVE
+document.getElementById('equipHatFive').addEventListener('click', () => {
+    chrome.storage.sync.set({ selectedHat: "/closet/z14by14Coin.png" }, () => {
         checkEquippedHat();
     });
 });
@@ -107,7 +156,7 @@ function updateHatTwo() {
         }
     });
 }
-
+// UPDATE HAT THREE DISPLAY
 function updateHatThree() {
     chrome.storage.sync.get(["hatThree"], (result) => {
         const purchased = result.hatThree || false;
@@ -126,6 +175,43 @@ function updateHatThree() {
     });
 }
 
+// UPDATE HAT FOUR DISPLAY
+function updateHatFour() {
+    chrome.storage.sync.get(["hatFour"], (result) => {
+        const purchased = result.hatFour || false;
+
+        if (purchased) {
+            document.getElementById("purchaseHatFour").style.display = "none";
+            document.getElementById("coinCountHatFour").style.display = "none";
+            document.getElementById("equipHatFour").style.display = "block";
+            document.getElementById("hatFourImage").style.opacity = 1;
+        } else {
+            document.getElementById("purchaseHatFour").style.display = "block";
+            document.getElementById("coinCountHatFour").style.display = "inline";
+            document.getElementById("equipHatFour").style.display = "none";
+            document.getElementById("hatFourImage").style.opacity = 0.3;
+        }
+    });
+}
+
+function updateHatFive() {
+    chrome.storage.sync.get(["hatFive"], (result) => {
+        const purchased = result.hatFive || false;
+
+        if (purchased) {
+            document.getElementById("purchaseHatFive").style.display = "none";
+            document.getElementById("coinCountHatFive").style.display = "none";
+            document.getElementById("equipHatFive").style.display = "block";
+            document.getElementById("hatFiveImage").style.opacity = 1;
+        } else {
+            document.getElementById("purchaseHatFive").style.display = "block";
+            document.getElementById("coinCountHatFive").style.display = "inline";
+            document.getElementById("equipHatFive").style.display = "none";
+            document.getElementById("hatFiveImage").style.opacity = 0.3;
+        }
+    });
+}
+
 // CHECK WHICH HAT IS EQUIPPED
 function checkEquippedHat() {
     chrome.storage.sync.get(["selectedHat"], (result) => {
@@ -135,24 +221,50 @@ function checkEquippedHat() {
             document.getElementById("equipHatOne").textContent = "Equipped";
             document.getElementById("equipHatTwo").textContent = "Equip";
             document.getElementById("equipHatThree").textContent = "Equip";
+            document.getElementById("equipHatFour").textContent = "Equip";
+            document.getElementById("equipHatFive").textContent = "Equip";
         }
 
         else if (selected === "/closet/temp_gif.gif") {
             document.getElementById("equipHatOne").textContent = "Equip";
             document.getElementById("equipHatTwo").textContent = "Equipped";
             document.getElementById("equipHatThree").textContent = "Equip";
+            document.getElementById("equipHatFour").textContent = "Equip";
+            document.getElementById("equipHatFive").textContent = "Equip";
         }
         
         else if (selected === "/closet/idle_frog.gif") {
             document.getElementById("equipHatOne").textContent = "Equip";
             document.getElementById("equipHatTwo").textContent = "Equip";
             document.getElementById("equipHatThree").textContent = "Equipped";
+            document.getElementById("equipHatFour").textContent = "Equip";
+            document.getElementById("equipHatFive").textContent = "Equip";
+            
         }
+
+        else if (selected === "/closet/z30by30Coin.png") {
+            document.getElementById("equipHatOne").textContent = "Equip";
+            document.getElementById("equipHatTwo").textContent = "Equip";
+            document.getElementById("equipHatThree").textContent = "Equip";
+            document.getElementById("equipHatFour").textContent = "Equipped";
+            document.getElementById("equipHatFive").textContent = "Equip";
+        }
+
+        else if (selected === "/closet/z14by14Coin.png") {
+            document.getElementById("equipHatOne").textContent = "Equip";
+            document.getElementById("equipHatTwo").textContent = "Equip";
+            document.getElementById("equipHatThree").textContent = "Equip";
+            document.getElementById("equipHatFour").textContent = "Equip";
+            document.getElementById("equipHatFive").textContent = "Equipped";
+        }
+
         else {
             // Nothing equipped yet
             document.getElementById("equipHatOne").textContent = "Equip";
             document.getElementById("equipHatTwo").textContent = "Equip";
             document.getElementById("equipHatThree").textContent = "Equip";
+            document.getElementById("equipHatFour").textContent = "Equip";
+            document.getElementById("equipHatFive").textContent = "Equip";
 
         }
     });
@@ -175,6 +287,8 @@ document.getElementById('devRemove').addEventListener('click', () => {
         updateHatOne();
         updateHatTwo();
         updateHatThree();
+        updateHatFour();
+        updateHatFive();
         checkEquippedHat();
 
     });
