@@ -1,3 +1,4 @@
+const amountDue = 0;
 // Checks whether the user has any assignments due today or if any are past due. 
 function checkDueToday() {
   chrome.storage.sync.get(['assignments'], (result) => {
@@ -25,15 +26,19 @@ function checkDueToday() {
         return return_val;
     }
 
+
     if (hasDueToday > 0) {
       // Shows the number of assignments due in the top right as a notification
       amount_due = checkAmountDue();
+      chrome.storage.sync.set({ amountDue: amount_due});
       chrome.action.setBadgeText({ text: String(amount_due) });
       chrome.action.setBadgeTextColor({color: "#ff0000ff"})
       chrome.action.setBadgeBackgroundColor({ color: "#ffffff" });
     } else {
       // If no assignments are due, display no notifications
       chrome.action.setBadgeText({ text: "" });
+      chrome.storage.sync.set({ amountDue: "0"});
+
     }
   });
 }

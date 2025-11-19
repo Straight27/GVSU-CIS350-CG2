@@ -26,7 +26,6 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     };
 
     assignments.push(newEntry);
-    console.log(assignments);
     chrome.storage.sync.set({ assignments }, () => {
       document.getElementById('status').textContent = 'Saved!';
       setTimeout(() => (document.getElementById('status').textContent = ''), 1000);
@@ -85,6 +84,52 @@ async function displayFilteredQuote() {
 }
 
 
+function setSprite() {
+  chrome.storage.sync.get(['amountDue'], (result) => {
+});
+  chrome.storage.sync.get(['amountDue'], (result) => {
+    amount = result.amountDue || 0
+    if (amount > 0){
+      chrome.storage.sync.get(['selectedHat'], (result) => {
+        if (result.selectedHat === "/closet/calm_cat.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/anxious_cat.gif";
+        }
+        if (result.selectedHat === "/closet/calm_dog.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/anxious_dog.gif";
+        }
+        if (result.selectedHat === "/closet/calm_frog.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/anxious_frog.gif";
+        }
+      });
+    }
+    else {
+      chrome.storage.sync.get(['selectedHat'], (result) => {
+        if (result.selectedHat === "/closet/calm_cat.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/calm_cat.gif";
+        }
+        if (result.selectedHat === "/closet/calm_dog.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/calm_dog.gif";
+        }
+        if (result.selectedHat === "/closet/calm_frog.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/calm_frog.gif";
+        }
+  });
+}
+});
+}
+
 // Load data on startup
 document.addEventListener('DOMContentLoaded', () => {
   chrome.storage.sync.get(['assignments'], (result) => {
@@ -97,15 +142,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   selectedHatLocation = chrome.storage.sync.get(["selectedHat"], result => {
     const image = document.getElementById("spriteLocation");
-    image.src = result.selectedHat || "/closet/study_sprite_logo.png";
+    image.src = result.selectedHat || "/closet/calm_cat.gif";
   });
   getDailyQuote();
+  setSprite();
 });
+
+
 
 // Listen for changes across devices/popups
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area === 'sync' && changes.assignments) {
     updateDisplay(changes.assignments.newValue || []);
+    setSprite();
   }
 });
 
@@ -170,6 +219,13 @@ function deleteAssignment(id) {
 
 // Toggle completion
 function toggleComplete(id, isChecked) {
+  chrome.storage.sync.get(['amountDue'], (result) => {
+    let amount = result.amountDue || 1;
+    amount -= 1;
+    chrome.storage.sync.set({ amountDue: amount}, () => {
+      setSprite();
+    });
+  });
   chrome.storage.sync.get(['assignments'], (result) => {
     const updated = (result.assignments || []).map((item) =>
       item.id == id ? { ...item, completed: isChecked } : item
@@ -190,6 +246,7 @@ function toggleComplete(id, isChecked) {
   });
 }
 
+
 //Open pop-up form
 document.getElementById("openFormButton").addEventListener('click', () => {
   openForm()
@@ -204,3 +261,4 @@ function openForm() {
 function closeForm() {
   document.getElementById("AssignmentForm").style.display = "none";
 }
+
