@@ -15,5 +15,13 @@
   },
   "background": {
     "service_worker": "background.js"
-  }
+
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["circle-progress.min.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+
 }

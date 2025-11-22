@@ -11,10 +11,17 @@
 			<img id="spriteLocation" src="/closet/calm_cat.gif">
 		</div>
 
+     <!-- load the circular progress web component -->
+    <script src="circle-progress.min.js" type="module"></script>
+    <!-- Your ONLY progress circle -->
+    <div class="progressContainer">
+      <circle-progress id="assignmentProgress" value="1" max="100"></circle-progress> 
+    </div>
+
 
     <div class="coinContainer">
-      <span id="tokenDisplay">0</span>
       <img src="/closet/z30by30Coin.png" class="coinIcon">
+      <span id="tokenDisplay">0</span>
     </div>
 
     <div id="inspirationalQuote">Empty</div>

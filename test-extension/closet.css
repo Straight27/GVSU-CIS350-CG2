@@ -81,8 +81,9 @@ html {
 	position: absolute;
 	color: white;
 	background-color: #007bff;
-	width: 475px;
+	width: 430px;
 	bottom: 3px;
+    left: 60px;
 	transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
@@ -93,5 +94,40 @@ html {
 	margin-right: 5px;
 	vertical-align: middle;
 	z-index: -5;
+}
+
+.coinContainer {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+
+	padding: 4px 10px 4px 1px;
+	border: 1.5px solid #333333;
+	border-radius: 10px;
+
+	background-color: #007bff;
+	width: fit-content;
+}
+
+.coinContainer {
+	position: fixed;
+	bottom: 5px;
+	left: 3.5px;
+}
+
+/* Positions how much currency you currently have */
+#tokenDisplay {
+	position: static;
+	padding-right: 2px;
+	color: white;
+	font: 15px Garamond;
+
+}
+
+/* Positions coin icon 30/30 */
+.coinIcon {
+	position: static;
+	width: 19px;
+	height: 19px;
 }
 
