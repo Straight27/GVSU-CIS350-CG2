@@ -132,11 +132,13 @@ html {
 	border-radius: 10px;
 
 	background-color: #007bff;
-	width: fit-content;
+	width: 42px;
+	height: fit-content;
 }
 
 .coinContainer {
 	position: fixed;
+
 	bottom: 5px;
 	left: 3.5px;
 }

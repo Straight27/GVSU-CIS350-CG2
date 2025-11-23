@@ -1,12 +1,24 @@
-window.onload = function () {
+// Updates coin amount when item purchased and etc...
+function updateTokenDisplay() {
+    chrome.storage.sync.get(["userTokens"], (result) => {
+    document.getElementById("tokenDisplay").textContent =
+        result.userTokens || 0;   
+    });
+}
+
+window.onload = function () { 
+
     chrome.storage.sync.set({ hatOne: true });
+
+
+};
+    updateTokenDisplay();
     updateHatOne();
     updateHatTwo();
     updateHatThree();
     updateHatFour();
     updateHatFive();
     checkEquippedHat();
-};
 
 // PURCHASE HAT ONE
 document.getElementById('purchaseHatOne').addEventListener('click', () => {
@@ -18,6 +30,8 @@ document.getElementById('purchaseHatOne').addEventListener('click', () => {
 
             chrome.storage.sync.set({ userTokens: tokens, hatOne: true }, () => {
                 updateHatOne();
+                updateTokenDisplay();
+
             });
         }
     });
@@ -33,6 +47,7 @@ document.getElementById('purchaseHatTwo').addEventListener('click', () => {
 
             chrome.storage.sync.set({ userTokens: tokens, hatTwo: true }, () => {
                 updateHatTwo();
+                updateTokenDisplay();
             });
         }
     });
@@ -48,6 +63,7 @@ document.getElementById('purchaseHatThree').addEventListener('click', () => {
 
             chrome.storage.sync.set({ userTokens: tokens, hatThree: true }, () => {
                 updateHatThree();
+                updateTokenDisplay();
             });
         }
     });
@@ -63,6 +79,7 @@ document.getElementById('purchaseHatFour').addEventListener('click', () => {
 
             chrome.storage.sync.set({ userTokens: tokens, hatFour: true }, () => {
                 updateHatFour();
+                updateTokenDisplay();
             });
         }
     });
@@ -79,6 +96,7 @@ document.getElementById('purchaseHatFive').addEventListener('click', () => {
 
             chrome.storage.sync.set({ userTokens: tokens, hatFive: true }, () => {
                 updateHatFive();
+                updateTokenDisplay();
             });
         }
     });

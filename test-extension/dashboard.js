@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 // Listen for changes across devices/popups
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area === 'sync' && changes.assignments) {

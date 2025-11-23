@@ -106,7 +106,8 @@ html {
 	border-radius: 10px;
 
 	background-color: #007bff;
-	width: fit-content;
+	width: 42px;
+	height: fit-content;
 }
 
 .coinContainer {
