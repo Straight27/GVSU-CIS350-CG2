@@ -51,4 +51,9 @@ TBD
 
 # Run Instuctions
 
-TBD
+To run the extension, do the following:
+1. Download the repository and extract the "study-sprite" folder. Put this somewhere safe and accessible.
+2. In your Google Chrome window, navigate to your extension button and click "Manage Extensions"
+3. Within the extension screen, make sure that "Developer mode" in the top rright corner is enabled. 
+4. In the top left, click the "Load unpacked" button and locate the "study-sprite" folder that you downloaded earler. Click on the folder itself and click "select folder"
+5. Optional: Pin the extension by clicking on your extension button and clicking the pin button next to Study Sprite.
