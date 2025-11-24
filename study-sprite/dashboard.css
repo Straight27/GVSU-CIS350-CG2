@@ -3,21 +3,20 @@
   	font: 20px Garamond;
 	text-align: center;
 	text-decoration: none;
-	font-weight: bold;
   	color: #333333;
 
 	/* Adjust the way the button works */
   	padding: 4px 10px 4px 10px ;
-	border: 1.5px solid #333333;
+	border: 1px solid #333333;
 	border-radius: 10px;
 
 	/* positions closet or settings button at the bottom of the page */
 	position: absolute;
 	color: white;
 	background-color: #007bff;
-	width: 430px;
-	bottom: 3px;
-	left: 60px;
+	width: fit-content; /* 420 old width for bottom */
+	bottom: 280px ;
+	right: 20px;
 	transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
@@ -67,11 +66,12 @@ html {
 	position: fixed;
 	bottom: 195px;
     right: 20px;
-    padding: 10px;
+    padding: 7px;
+	margin-top: 5px;
 
 	/*Form display design*/
     background-color: #007bff;
-	font: 14px Garamond;
+	font: 20px Garamond;
     color: white;
 	border: 1.3px solid #333333;
     border-radius: 10px;
@@ -105,14 +105,14 @@ html {
 
 	position: absolute;
 	margin-right: 8px;
-	top: 10px;
-	left: 175px;
+	bottom: 10px;
+	/* left: 175px; */
 
 	padding: 5px;
 	border: 1px solid #333333;
 	border-radius: 5px;
 
-	width: 315px;
+	width: 490px;
 	height: 30px;
 
 	overflow-y: auto;
@@ -128,19 +128,19 @@ html {
 	gap: 5px;
 
 	padding: 4px 10px 4px 1px;
-	border: 1.5px solid #333333;
+	border: 1px solid #333333;
 	border-radius: 10px;
 
-	background-color: #007bff;
-	width: 42px;
+	background-color: #9286ff;
+	width: fit-content;
 	height: fit-content;
 }
 
 .coinContainer {
 	position: fixed;
 
-	bottom: 5px;
-	left: 3.5px;
+	bottom: 240px;
+	right: 110px;
 }
 
 /* Positions how much currency you currently have */
@@ -148,7 +148,7 @@ html {
 	position: static;
 	padding-right: 2px;
 	color: white;
-	font: 15px Garamond;
+	font: 20px Garamond;
 
 }
 
@@ -184,6 +184,6 @@ html {
 
 .progressContainer {
 	position: absolute;
-	top: 60px;
-	left: 170px;
+	top: 40px;
+	left: 210px;
 }

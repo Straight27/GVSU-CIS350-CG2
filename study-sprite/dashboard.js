@@ -46,13 +46,14 @@ function getDailyQuote() {
         })
         .then(data => {
         document.getElementById("inspirationalQuote").innerHTML =
-        `${data.quote}  <span style="font-size: 0.8em;">- ${data.author || "Unknown"}</span>`;
+        `<span>${data.quote} <span style="font-size: 0.8em;">- ${data.author || "Unknown"}</span></span>`;
 })        
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
 }
 
+/*
 // Filters quotes so it has a max length (125 characters)
 function filterQuoteByLength(quoteObject, minLength, maxLength) {
   if (!quoteObject || !quoteObject.quote) {
@@ -70,18 +71,19 @@ async function displayFilteredQuote() {
   do {
     quoteData = await displayFilteredQuote(); // Waits for the promise to resolve (true, false)
     attempts++
-    if (quoteData && filterQuoteByLength(quoteData, 50, 125)) {
-      document.getElementById("DataQuote"). textContent = quoteData.quote;
-      document.getElementById("quoteAuthor").textContent = ` - ${quoteData.author}`;
+    if (quoteData && filterQuoteByLength(quoteData, 50, 100)) {
+     // document.getElementById("DataQuote").textContent = `${quoteData.quote} - ${quoteData.author}`;
+     // document.getElementById("quoteAuthor").textContent = ` - ${quoteData.author}`;
       break;
     }
   } while (attempts < maxAttempts);
   
-  if (attempts === maxAttempts && (!quoteData || !filterQuoteByLength(quoteData, 50, 125))) {
+  if (attempts === maxAttempts && (!quoteData || !filterQuoteByLength(quoteData, 50, 1))) {
     document.getElementById('quoteDisplay').textContent = "Could not find a quote matching criteria";
     document.getElementById('quoteAuthor').textContent = "";
   }
 }
+  */
 
 
 function setSprite() {
