@@ -8,77 +8,61 @@ function updateTokenDisplay() {
 
 window.onload = function () { 
 
-    chrome.storage.sync.set({ hatOne: true });
+    chrome.storage.sync.set({ spriteOne: true });
 
 
 };
     updateTokenDisplay();
-    updateHatOne();
-    updateHatTwo();
-    updateHatThree();
-    updateHatFour();
-    updateHatFive();
-    checkEquippedHat();
+    updateSpriteOne();
+    updateSpriteTwo();
+    updateSpriteThree();
+    updateSpriteFour();
+    checkEquippedSprite();
 
-// PURCHASE HAT ONE
-document.getElementById('purchaseHatOne').addEventListener('click', () => {
+
+
+// PURCHASE SPRITE TWO
+document.getElementById('purchaseSpriteTwo').addEventListener('click', () => {
     chrome.storage.sync.get(["userTokens"], (result) => {
         let tokens = result.userTokens || 0;
 
         if (tokens >= 5) {
             tokens -= 5;
 
-            chrome.storage.sync.set({ userTokens: tokens, hatOne: true }, () => {
-                updateHatOne();
-                updateTokenDisplay();
-
-            });
-        }
-    });
-});
-
-// PURCHASE HAT TWO
-document.getElementById('purchaseHatTwo').addEventListener('click', () => {
-    chrome.storage.sync.get(["userTokens"], (result) => {
-        let tokens = result.userTokens || 0;
-
-        if (tokens >= 5) {
-            tokens -= 5;
-
-            chrome.storage.sync.set({ userTokens: tokens, hatTwo: true }, () => {
-                updateHatTwo();
+            chrome.storage.sync.set({ userTokens: tokens, spriteTwo: true }, () => {
+                updateSpriteTwo();
                 updateTokenDisplay();
             });
         }
     });
 });
 
- // PURCHASE HAT THREE
-document.getElementById('purchaseHatThree').addEventListener('click', () => {
+ // PURCHASE SPRITE THREE
+document.getElementById('purchaseSpriteThree').addEventListener('click', () => {
     chrome.storage.sync.get(["userTokens"], (result) => {
         let tokens = result.userTokens || 0;
 
         if (tokens >= 5) {
             tokens -= 5;
 
-            chrome.storage.sync.set({ userTokens: tokens, hatThree: true }, () => {
-                updateHatThree();
+            chrome.storage.sync.set({ userTokens: tokens, spriteThree: true }, () => {
+                updateSpriteThree();
                 updateTokenDisplay();
             });
         }
     });
 });
 
- // PURCHASE HAT FOUR
-document.getElementById('purchaseHatFour').addEventListener('click', () => {
+ // PURCHASE SPRITE FOUR
+document.getElementById('purchaseSpriteFour').addEventListener('click', () => {
     chrome.storage.sync.get(["userTokens"], (result) => {
         let tokens = result.userTokens || 0;
 
         if (tokens >= 5) {
             tokens -= 5;
 
-            chrome.storage.sync.set({ userTokens: tokens, hatFour: true }, () => {
-                updateHatFour();
+            chrome.storage.sync.set({ userTokens: tokens, spriteFour: true }, () => {
+                updateSpriteFour();
                 updateTokenDisplay();
             });
         }
@@ -86,228 +70,175 @@ document.getElementById('purchaseHatFour').addEventListener('click', () => {
 });
 
 
- // PURCHASE HAT FIVE
-document.getElementById('purchaseHatFive').addEventListener('click', () => {
-    chrome.storage.sync.get(["userTokens"], (result) => {
-        let tokens = result.userTokens || 0;
 
-        if (tokens >= 5) {
-            tokens -= 5;
-
-            chrome.storage.sync.set({ userTokens: tokens, hatFive: true }, () => {
-                updateHatFive();
-                updateTokenDisplay();
-            });
-        }
+// EQUIP SPRITE ONE
+document.getElementById('equipSpriteOne').addEventListener('click', () => {
+    chrome.storage.sync.set({ selectedSprite: "/closet/calm_cat.gif" }, () => {
+        checkEquippedSprite();
     });
 });
 
-// EQUIP HAT ONE
-document.getElementById('equipHatOne').addEventListener('click', () => {
-    chrome.storage.sync.set({ selectedHat: "/closet/calm_cat.gif" }, () => {
-        checkEquippedHat();
+// EQUIP SPRITE TWO
+document.getElementById('equipSpriteTwo').addEventListener('click', () => {
+    chrome.storage.sync.set({ selectedSprite: "/closet/calm_frog.gif" }, () => {
+        checkEquippedSprite();
     });
 });
 
-// EQUIP HAT TWO
-document.getElementById('equipHatTwo').addEventListener('click', () => {
-    chrome.storage.sync.set({ selectedHat: "/closet/calm_frog.gif" }, () => {
-        checkEquippedHat();
+// EQUIP Sprite THREE
+document.getElementById('equipSpriteThree').addEventListener('click', () => {
+    chrome.storage.sync.set({ selectedSprite: "/closet/calm_dog.gif" }, () => {
+        checkEquippedSprite();
     });
 });
 
-// EQUIP HAT THREE
-document.getElementById('equipHatThree').addEventListener('click', () => {
-    chrome.storage.sync.set({ selectedHat: "/closet/calm_dog.gif" }, () => {
-        checkEquippedHat();
+// EQUIP SPRITE FOUR
+document.getElementById('equipSpriteFour').addEventListener('click', () => {
+    chrome.storage.sync.set({ selectedSprite: "/closet/calm_penguin.gif" }, () => {
+        checkEquippedSprite();
     });
 });
 
-// EQUIP HAT FOUR
-document.getElementById('equipHatFour').addEventListener('click', () => {
-    chrome.storage.sync.set({ selectedHat: "/closet/study_sprite_logo.png" }, () => {
-        checkEquippedHat();
-    });
-});
-
-// EQUIP HAT FIVE
-document.getElementById('equipHatFive').addEventListener('click', () => {
-    chrome.storage.sync.set({ selectedHat: "/closet/z14by14Coin.png" }, () => {
-        checkEquippedHat();
-    });
-});
-
-// UPDATE HAT ONE DISPLAY
-function updateHatOne() {
-    chrome.storage.sync.get(["hatOne"], (result) => {
-        const purchased = result.hatOne || false;
+function updateSpriteOne() {
+    chrome.storage.sync.get(["spriteOne"], (result) => {
+        const purchased = true
 
         if (purchased) {
-            document.getElementById("purchaseHatOne").style.display = "none";
-            document.getElementById("coinCountHatOne").style.display = "none";
-            document.getElementById("equipHatOne").style.display = "block";
-            document.getElementById("hatOneImage").style.opacity = 1;
+            document.getElementById("purchaseSpriteOne").style.display = "none";
+            document.getElementById("coinCountSpriteOne").style.display = "none";
+            document.getElementById("equipSpriteOne").style.display = "block";
+            document.getElementById("spriteOneImage").style.opacity = 1;
         } else {
-            document.getElementById("purchaseHatOne").style.display = "block";
-            document.getElementById("coinCountHatOne").style.display = "inline";
-            document.getElementById("equipHatOne").style.display = "none";
-            document.getElementById("hatOneImage").style.opacity = 0.3;
+            document.getElementById("purchaseSpriteOne").style.display = "block";
+            document.getElementById("coinCountSpriteOne").style.display = "inline";
+            document.getElementById("equipSpriteOne").style.display = "none";
+            document.getElementById("spriteOneImage").style.opacity = 0.3;
         }
     });
 }
 
-// UPDATE HAT TWO DISPLAY
-function updateHatTwo() {
-    chrome.storage.sync.get(["hatTwo"], (result) => {
-        const purchased = result.hatTwo || false;
+// UPDATE SPRITE TWO DISPLAY
+function updateSpriteTwo() {
+    chrome.storage.sync.get(["spriteTwo"], (result) => {
+        const purchased = result.spriteTwo || false;
 
         if (purchased) {
-            document.getElementById("purchaseHatTwo").style.display = "none";
-            document.getElementById("coinCountHatTwo").style.display = "none";
-            document.getElementById("equipHatTwo").style.display = "block";
-            document.getElementById("hatTwoImage").style.opacity = 1;
+            document.getElementById("purchaseSpriteTwo").style.display = "none";
+            document.getElementById("coinCountSpriteTwo").style.display = "none";
+            document.getElementById("equipSpriteTwo").style.display = "block";
+            document.getElementById("spriteTwoImage").style.opacity = 1;
         } else {
-            document.getElementById("purchaseHatTwo").style.display = "block";
-            document.getElementById("coinCountHatTwo").style.display = "inline";
-            document.getElementById("equipHatTwo").style.display = "none";
-            document.getElementById("hatTwoImage").style.opacity = 0.3;
+            document.getElementById("purchaseSpriteTwo").style.display = "block";
+            document.getElementById("coinCountSpriteTwo").style.display = "inline";
+            document.getElementById("equipSpriteTwo").style.display = "none";
+            document.getElementById("spriteTwoImage").style.opacity = 0.3;
         }
     });
 }
-// UPDATE HAT THREE DISPLAY
-function updateHatThree() {
-    chrome.storage.sync.get(["hatThree"], (result) => {
-        const purchased = result.hatThree || false;
+// UPDATE SPRITE THREE DISPLAY
+function updateSpriteThree() {
+    chrome.storage.sync.get(["spriteThree"], (result) => {
+        const purchased = result.spriteThree || false;
 
         if (purchased) {
-            document.getElementById("purchaseHatThree").style.display = "none";
-            document.getElementById("coinCountHatThree").style.display = "none";
-            document.getElementById("equipHatThree").style.display = "block";
-            document.getElementById("hatThreeImage").style.opacity = 1;
+            document.getElementById("purchaseSpriteThree").style.display = "none";
+            document.getElementById("coinCountSpriteThree").style.display = "none";
+            document.getElementById("equipSpriteThree").style.display = "block";
+            document.getElementById("spriteThreeImage").style.opacity = 1;
         } else {
-            document.getElementById("purchaseHatThree").style.display = "block";
-            document.getElementById("coinCountHatThree").style.display = "inline";
-            document.getElementById("equipHatThree").style.display = "none";
-            document.getElementById("hatThreeImage").style.opacity = 0.3;
-        }
-    });
-}
-
-// UPDATE HAT FOUR DISPLAY
-function updateHatFour() {
-    chrome.storage.sync.get(["hatFour"], (result) => {
-        const purchased = result.hatFour || false;
-
-        if (purchased) {
-            document.getElementById("purchaseHatFour").style.display = "none";
-            document.getElementById("coinCountHatFour").style.display = "none";
-            document.getElementById("equipHatFour").style.display = "block";
-            document.getElementById("hatFourImage").style.opacity = 1;
-        } else {
-            document.getElementById("purchaseHatFour").style.display = "block";
-            document.getElementById("coinCountHatFour").style.display = "inline";
-            document.getElementById("equipHatFour").style.display = "none";
-            document.getElementById("hatFourImage").style.opacity = 0.3;
+            document.getElementById("purchaseSpriteThree").style.display = "block";
+            document.getElementById("coinCountSpriteThree").style.display = "inline";
+            document.getElementById("equipSpriteThree").style.display = "none";
+            document.getElementById("spriteThreeImage").style.opacity = 0.3;
         }
     });
 }
 
-function updateHatFive() {
-    chrome.storage.sync.get(["hatFive"], (result) => {
-        const purchased = result.hatFive || false;
+// UPDATE SPRITE FOUR DISPLAY
+function updateSpriteFour() {
+    chrome.storage.sync.get(["spriteFour"], (result) => {
+        const purchased = result.spriteFour || false;
 
         if (purchased) {
-            document.getElementById("purchaseHatFive").style.display = "none";
-            document.getElementById("coinCountHatFive").style.display = "none";
-            document.getElementById("equipHatFive").style.display = "block";
-            document.getElementById("hatFiveImage").style.opacity = 1;
+            document.getElementById("purchaseSpriteFour").style.display = "none";
+            document.getElementById("coinCountSpriteFour").style.display = "none";
+            document.getElementById("equipSpriteFour").style.display = "block";
+            document.getElementById("spriteFourImage").style.opacity = 1;
         } else {
-            document.getElementById("purchaseHatFive").style.display = "block";
-            document.getElementById("coinCountHatFive").style.display = "inline";
-            document.getElementById("equipHatFive").style.display = "none";
-            document.getElementById("hatFiveImage").style.opacity = 0.3;
+            document.getElementById("purchaseSpriteFour").style.display = "block";
+            document.getElementById("coinCountSpriteFour").style.display = "inline";
+            document.getElementById("equipSpriteFour").style.display = "none";
+            document.getElementById("spriteFourImage").style.opacity = 0.3;
         }
     });
 }
 
-// CHECK WHICH HAT IS EQUIPPED
-function checkEquippedHat() {
-    chrome.storage.sync.get(["selectedHat"], (result) => {
-        let selected = result.selectedHat || "/closet/calm_cat.gif";
+
+// CHECK WHICH SPRITE IS EQUIPPED
+function checkEquippedSprite() {
+    chrome.storage.sync.get(["selectedSprite"], (result) => {
+        let selected = result.selectedSprite || "/closet/calm_cat.gif";
 
         if (selected === "/closet/calm_cat.gif") {
-            document.getElementById("equipHatOne").textContent = "Equipped";
-            document.getElementById("equipHatTwo").textContent = "Equip";
-            document.getElementById("equipHatThree").textContent = "Equip";
-            document.getElementById("equipHatFour").textContent = "Equip";
-            document.getElementById("equipHatFive").textContent = "Equip";
+            document.getElementById("equipSpriteOne").textContent = "Equipped";
+            document.getElementById("equipSpriteTwo").textContent = "Equip";
+            document.getElementById("equipSpriteThree").textContent = "Equip";
+            document.getElementById("equipSpriteFour").textContent = "Equip";
         }
 
         else if (selected === "/closet/calm_frog.gif") {
-            document.getElementById("equipHatOne").textContent = "Equip";
-            document.getElementById("equipHatTwo").textContent = "Equipped";
-            document.getElementById("equipHatThree").textContent = "Equip";
-            document.getElementById("equipHatFour").textContent = "Equip";
-            document.getElementById("equipHatFive").textContent = "Equip";
+            document.getElementById("equipSpriteOne").textContent = "Equip";
+            document.getElementById("equipSpriteTwo").textContent = "Equipped";
+            document.getElementById("equipSpriteThree").textContent = "Equip";
+            document.getElementById("equipSpriteFour").textContent = "Equip";
         }
         
         else if (selected === "/closet/calm_dog.gif") {
-            document.getElementById("equipHatOne").textContent = "Equip";
-            document.getElementById("equipHatTwo").textContent = "Equip";
-            document.getElementById("equipHatThree").textContent = "Equipped";
-            document.getElementById("equipHatFour").textContent = "Equip";
-            document.getElementById("equipHatFive").textContent = "Equip";
+            document.getElementById("equipSpriteOne").textContent = "Equip";
+            document.getElementById("equipSpriteTwo").textContent = "Equip";
+            document.getElementById("equipSpriteThree").textContent = "Equipped";
+            document.getElementById("equipSpriteFour").textContent = "Equip";
             
         }
 
-        else if (selected === "/closet/study_sprite_logo.png") {
-            document.getElementById("equipHatOne").textContent = "Equip";
-            document.getElementById("equipHatTwo").textContent = "Equip";
-            document.getElementById("equipHatThree").textContent = "Equip";
-            document.getElementById("equipHatFour").textContent = "Equipped";
-            document.getElementById("equipHatFive").textContent = "Equip";
-        }
-
-        else if (selected === "/closet/z14by14Coin.png") {
-            document.getElementById("equipHatOne").textContent = "Equip";
-            document.getElementById("equipHatTwo").textContent = "Equip";
-            document.getElementById("equipHatThree").textContent = "Equip";
-            document.getElementById("equipHatFour").textContent = "Equip";
-            document.getElementById("equipHatFive").textContent = "Equipped";
+        else if (selected === "/closet/calm_penguin.gif") {
+            document.getElementById("equipSpriteOne").textContent = "Equip";
+            document.getElementById("equipSpriteTwo").textContent = "Equip";
+            document.getElementById("equipSpriteThree").textContent = "Equip";
+            document.getElementById("equipSpriteFour").textContent = "Equipped";
         }
 
         else {
             // Nothing equipped yet
-            document.getElementById("equipHatOne").textContent = "Equip";
-            document.getElementById("equipHatTwo").textContent = "Equip";
-            document.getElementById("equipHatThree").textContent = "Equip";
-            document.getElementById("equipHatFour").textContent = "Equip";
-            document.getElementById("equipHatFive").textContent = "Equip";
+            document.getElementById("equipSpriteOne").textContent = "Equip";
+            document.getElementById("equipSpriteTwo").textContent = "Equip";
+            document.getElementById("equipSpriteThree").textContent = "Equip";
+            document.getElementById("equipSpriteFour").textContent = "Equip";
+            document.getElementById("equipSriteFive").textContent = "Equip";
 
         }
     });
 }
 
 // --- DEV RESET BUTTON ---
-// This will reset hats to NOT purchased
+// This will reset everything to NOT purchased
 document.getElementById('devRemove').addEventListener('click', () => {
     chrome.storage.sync.set({
+        spriteTwo: false,
+        spriteThree: false,
+        spriteFour: false,
+        hatOne: false,
         hatTwo: false,
         hatThree: false,
         hatFour: false,
-        hatFive: false,
-        hatSix: false,
-        hatSeven: false,
-        hatEight: false,
-        selectedHat: "/closet/calm_cat.gif",
+        selectedSprite: "/closet/calm_cat.gif",
         userTokens: 100
     }, () => {
-        updateHatOne();
-        updateHatTwo();
-        updateHatThree();
-        updateHatFour();
-        updateHatFive();
-        checkEquippedHat();
+        updateSpriteOne();
+        updateSpriteTwo();
+        updateSpriteThree();
+        updateSpriteFour();
+        checkEquippedSprite();
 
     });
 });

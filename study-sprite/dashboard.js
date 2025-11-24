@@ -90,40 +90,50 @@ function setSprite() {
   chrome.storage.sync.get(['amountDue'], (result) => {
     amount = result.amountDue || 0
     if (amount > 0){
-      chrome.storage.sync.get(['selectedHat'], (result) => {
-        if (result.selectedHat === "/closet/calm_cat.gif")
+      chrome.storage.sync.get(['selectedSprite'], (result) => {
+        if (result.selectedSprite === "/closet/calm_cat.gif")
         {
           const image = document.getElementById("spriteLocation");
           image.src = "/closet/anxious_cat.gif";
         }
-        if (result.selectedHat === "/closet/calm_dog.gif")
+        if (result.selectedSprite === "/closet/calm_dog.gif")
         {
           const image = document.getElementById("spriteLocation");
           image.src = "/closet/anxious_dog.gif";
         }
-        if (result.selectedHat === "/closet/calm_frog.gif")
+        if (result.selectedSprite === "/closet/calm_frog.gif")
         {
           const image = document.getElementById("spriteLocation");
           image.src = "/closet/anxious_frog.gif";
         }
+        if (result.selectedSprite === "/closet/calm_penguin.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/anxious_penguin.gif";
+        }
       });
     }
     else {
-      chrome.storage.sync.get(['selectedHat'], (result) => {
-        if (result.selectedHat === "/closet/calm_cat.gif")
+      chrome.storage.sync.get(['selectedSprite'], (result) => {
+        if (result.selectedSprite === "/closet/calm_cat.gif")
         {
           const image = document.getElementById("spriteLocation");
           image.src = "/closet/calm_cat.gif";
         }
-        if (result.selectedHat === "/closet/calm_dog.gif")
+        if (result.selectedSprite === "/closet/calm_dog.gif")
         {
           const image = document.getElementById("spriteLocation");
           image.src = "/closet/calm_dog.gif";
         }
-        if (result.selectedHat === "/closet/calm_frog.gif")
+        if (result.selectedSprite === "/closet/calm_frog.gif")
         {
           const image = document.getElementById("spriteLocation");
           image.src = "/closet/calm_frog.gif";
+        }
+        if (result.selectedSprite === "/closet/calm_penguin.gif")
+        {
+          const image = document.getElementById("spriteLocation");
+          image.src = "/closet/calm_penguin.gif";
         }
   });
 }
@@ -140,9 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
             result.userTokens || 0;
         
   });
-  selectedHatLocation = chrome.storage.sync.get(["selectedHat"], result => {
+  selectedSpriteLocation = chrome.storage.sync.get(["selectedSprite"], result => {
     const image = document.getElementById("spriteLocation");
-    image.src = result.selectedHat || "/closet/calm_cat.gif";
+    image.src = result.selectedSprite || "/closet/calm_cat.gif";
   });
   getDailyQuote();
   setSprite();
