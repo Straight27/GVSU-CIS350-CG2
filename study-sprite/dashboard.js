@@ -166,6 +166,16 @@ function clearInputs() {
   document.getElementById('dueDateYear').value = 'Year';
 }
 
+// Update Progresson Bar
+function updateProgressBar(assignments) {
+  const total = assignments.length;
+  const completed = assignments.filter(a => a.completed).length;
+
+  const cp = document.getElementById("assignmentProgress");
+  cp.max = total === 0 ? 1 : total;
+  cp.value = completed;
+}
+
 // Update display div with all assignments
 function updateDisplay(assignments) {
   const displayDiv = document.getElementById('displayDiv');
@@ -204,6 +214,8 @@ function updateDisplay(assignments) {
   document.querySelectorAll('.completeBox').forEach((box) => {
     box.addEventListener('change', () => toggleComplete(box.dataset.id, box.checked));
   });
+
+  updateProgressBar(assignments)
 }
 
 // Delete an assignment
