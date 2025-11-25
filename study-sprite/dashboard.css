@@ -187,3 +187,23 @@ html {
 	top: 40px;
 	left: 210px;
 }
+
+.filter-button {
+	/* Adjusts text */
+	display: block;
+  	font: 20px Garamond;
+	text-align: center;
+	color: white;
+
+	/* Adjusts borders */
+  	padding: 4px 10px 4px 10px ;
+	border: 1px solid #333333;
+	border-radius: 10px;
+
+	/* Adjusts posiiton */
+	position: absolute;
+	background-color: #007bff;
+	width: 73px; /* 420 old width for bottom */
+	bottom: 240px ;
+	right: 20px;
+}

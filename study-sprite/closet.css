@@ -52,8 +52,13 @@ html {
 /* Purchase and equip buttons inside item box */
 .purchase-btn,
 .equip-btn {
+	color: white;
+	background-color: #007bff;
+	border-radius: 5px;
+
     width: 75px;
     height: 22px;
+	margin-bottom: 5px;
     margin: 4px auto 0 auto;
     display: block;
     text-align: center;
@@ -91,6 +96,7 @@ html {
 .coin-icon {
 	width: 14px;
 	height: 14px;
+	margin-bottom: 4px;
 	margin-right: 5px;
 	vertical-align: middle;
 	z-index: -5;
@@ -105,7 +111,7 @@ html {
 	border: 1.5px solid #333333;
 	border-radius: 10px;
 
-	background-color: #007bff;
+	background-color: #9286ff;
 	width: 42px;
 	height: fit-content;
 }
