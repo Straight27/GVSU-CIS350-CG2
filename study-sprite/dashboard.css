@@ -14,8 +14,8 @@
 	position: absolute;
 	color: white;
 	background-color: #007bff;
-	width: fit-content; /* 420 old width for bottom */
-	bottom: 280px ;
+	width: 130px; /* 420 old width for bottom */
+	bottom: 310px ;
 	right: 20px;
 	transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
@@ -82,7 +82,6 @@ html {
 	max-height: 125px;
 	overflow-y: auto;
 	display: block;
-	/*	margin-top: 100px; */
 
 	font: 15px Garamond;
 	width: 475px;
@@ -129,18 +128,17 @@ html {
 
 	padding: 4px 10px 4px 1px;
 	border: 1px solid #333333;
-	border-radius: 10px;
+	border-radius: 75%;
 
 	background-color: #9286ff;
-	width: fit-content;
-	height: fit-content;
+	width: 50px;
+	height: 50px;
 }
 
 .coinContainer {
 	position: fixed;
-
-	bottom: 240px;
-	right: 110px;
+	bottom: 242px; /* 254px */
+	right: 108px;
 }
 
 /* Positions how much currency you currently have */
@@ -182,10 +180,18 @@ html {
 	position: relative;
 }
 
-.progressContainer {
+#progressHeading {
+	font: bold 13px Garamond;
+	top: auto;
+	left: 185px;
+	position: fixed;
+	white-space: nowrap;
+}
+
+#assignmentProgress {
 	position: absolute;
 	top: 40px;
-	left: 210px;
+	left: 195px;
 }
 
 .filter-button {
@@ -204,6 +210,6 @@ html {
 	position: absolute;
 	background-color: #007bff;
 	width: 73px; /* 420 old width for bottom */
-	bottom: 240px ;
+	bottom: 254px ;
 	right: 20px;
 }
