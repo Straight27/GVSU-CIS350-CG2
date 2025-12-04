@@ -227,10 +227,6 @@ document.getElementById('devRemove').addEventListener('click', () => {
         spriteTwo: false,
         spriteThree: false,
         spriteFour: false,
-        hatOne: false,
-        hatTwo: false,
-        hatThree: false,
-        hatFour: false,
         selectedSprite: "/closet/calm_cat.gif",
         userTokens: 100
     }, () => {

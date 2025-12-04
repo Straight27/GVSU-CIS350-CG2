@@ -68,6 +68,7 @@ html {
     right: 20px;
     padding: 7px;
 	margin-top: 5px;
+	width: 150px;
 
 	/*Form display design*/
     background-color: #007bff;
@@ -138,7 +139,7 @@ html {
 .coinContainer {
 	position: fixed;
 	bottom: 242px; /* 254px */
-	right: 108px;
+	right: 65px;
 }
 
 /* Positions how much currency you currently have */
@@ -194,22 +195,3 @@ html {
 	left: 195px;
 }
 
-.filter-button {
-	/* Adjusts text */
-	display: block;
-  	font: 20px Garamond;
-	text-align: center;
-	color: white;
-
-	/* Adjusts borders */
-  	padding: 4px 10px 4px 10px ;
-	border: 1px solid #333333;
-	border-radius: 10px;
-
-	/* Adjusts posiiton */
-	position: absolute;
-	background-color: #007bff;
-	width: 73px; /* 420 old width for bottom */
-	bottom: 254px ;
-	right: 20px;
-}

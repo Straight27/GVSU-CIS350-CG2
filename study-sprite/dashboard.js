@@ -53,37 +53,6 @@ function getDailyQuote() {
         });
 }
 
-/*
-// Filters quotes so it has a max length (125 characters)
-function filterQuoteByLength(quoteObject, minLength, maxLength) {
-  if (!quoteObject || !quoteObject.quote) {
-    return false;
-  }
-  const quoteText = quoteObject.quote;
-  return quoteText.length >= minLength && quoteText.length <= maxLength;
-}
-
-async function displayFilteredQuote() {
-  let quoteData;
-  let attempts = 0;
-  const maxAttempts = 10;
-
-  do {
-    quoteData = await displayFilteredQuote(); // Waits for the promise to resolve (true, false)
-    attempts++
-    if (quoteData && filterQuoteByLength(quoteData, 50, 100)) {
-     // document.getElementById("DataQuote").textContent = `${quoteData.quote} - ${quoteData.author}`;
-     // document.getElementById("quoteAuthor").textContent = ` - ${quoteData.author}`;
-      break;
-    }
-  } while (attempts < maxAttempts);
-  
-  if (attempts === maxAttempts && (!quoteData || !filterQuoteByLength(quoteData, 50, 1))) {
-    document.getElementById('quoteDisplay').textContent = "Could not find a quote matching criteria";
-    document.getElementById('quoteAuthor').textContent = "";
-  }
-}
-  */
 
 
 function setSprite() {
