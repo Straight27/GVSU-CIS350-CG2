@@ -235,6 +235,7 @@ document.getElementById('devRemove').addEventListener('click', () => {
         updateSpriteThree();
         updateSpriteFour();
         checkEquippedSprite();
+        updateTokenDisplay();
+    });
 
     });
-});

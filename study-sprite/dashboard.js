@@ -59,9 +59,15 @@ function setSprite() {
   chrome.storage.sync.get(['amountDue'], (result) => {
 });
   chrome.storage.sync.get(['amountDue'], (result) => {
-    amount = result.amountDue || 0
+    amount = result.amountDue || 0;
+    console.log(amount);
     if (amount > 0){
+      console.log("Greater than 0");
       chrome.storage.sync.get(['selectedSprite'], (result) => {
+        if (result.selectedSprite == undefined)
+        {
+          result.selectedSprite = "/closet/calm_cat.gif";
+        }
         if (result.selectedSprite === "/closet/calm_cat.gif")
         {
           const image = document.getElementById("spriteLocation");
