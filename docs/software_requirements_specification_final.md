@@ -43,5 +43,6 @@ The purpose of this is to formally document all requirements, expectations, and 
 # Software Artifacts
 The purpose of this section is to easily link to other important documents.
 * [Gantt Chart](updated_gantt_chart_11-05-2025.png)
-* [Use Case](use_case.md)
-
+* [Use Case](use_case.pdf)
+* [Communication Diagram](Com_diagram.pdf)
+* [Class Diagram](/artifacts/Class_Obj.pdf)
